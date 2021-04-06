@@ -6,9 +6,9 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <div
+        <img
           className="header__logo"
-          src="http://via.placeholder.com/60x60"
+          src="https://i.imgur.com/KLZ5dsD.png"
           onClick={() => history.push("/")}
         />
         <div className="header__middle-links">

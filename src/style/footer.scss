@@ -1,7 +1,6 @@
 .footer {
   background-color: #235d9c;
   color: white;
-  font-size: 16px;
   grid-row: footer-s/footer-e;
   grid-column: 1/-1;
   display: grid;
@@ -22,15 +21,11 @@
     margin-right: 60px;
     grid-column: redes-s/redes-e;
     display: grid;
-    grid-column-gap: 0px;
     grid-template-columns: [siguenos-s] 100px [siguenos-e twitter-s] 25px [twitter-e facebook-s] 20px [facebook-e pinterest-s] 20px [pinterest-e youtube-s] 20px [youtube-e];
     a {
       color: white;
       text-decoration: none;
-      font-size: 18px;
-    }
-    i {
-      font-style: normal;
+      font-size: 16px;
     }
   }
 }
