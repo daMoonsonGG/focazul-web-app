@@ -2,20 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { BrowserRouter } from "react-router-dom";
-import Focazul from "./components/app";
+import { Router, Switch, Route } from "react-router-dom";
+import Layout from "./components/layout";
 import reducers from "./reducers";
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 import "./style/main.scss";
 
+import history from "./history";
+
 function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter>
-        <Focazul />
-      </BrowserRouter>
+      <Router history={history}>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Layout} />
+            {/* <Route path="/colabora" exact component={Colabora} />
+            <Route path="/teatro" exact component={Teatro} />
+            <Route path="/patrocinadores" exact component={Patrocinadores} /> */}
+          </Switch>
+        </Layout>
+      </Router>
     </Provider>,
     document.querySelector(".app-wrapper")
   );
