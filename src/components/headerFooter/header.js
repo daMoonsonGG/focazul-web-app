@@ -6,7 +6,11 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <div className="header__logo" src="http://via.placeholder.com/60x60" />
+        <div
+          className="header__logo"
+          src="http://via.placeholder.com/60x60"
+          onClick={() => history.push("/")}
+        />
         <div className="header__middle-links">
           <a className="header__middle-link" onClick={() => history.push("/")}>
             Qué hacemos
@@ -32,7 +36,8 @@ class Header extends Component {
         </div>
         <a
           className="header__right-link"
-          onClick={() => history.push("/patrocinadores")}
+          href="https://focazul.wordpress.com/"
+          target="_blank"
         >
           Blog
         </a>

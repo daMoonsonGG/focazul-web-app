@@ -1,0 +1,5 @@
+.layout {
+  display: grid;
+  grid-template-rows: [header-s] 85px [header-e content-s] 1fr [content-e footer-s] 85 [footer-e];
+  grid-template-columns: minmax(20px, 250px) [s] 1fr [e] minmax(20px, 250px);
+}
