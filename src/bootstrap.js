@@ -14,6 +14,7 @@ import history from "./history";
 
 import Layout from "./components/layout";
 import About from "./components/content/about";
+import Teatro from "./components/content/teatro";
 
 function main() {
   ReactDOM.render(
@@ -22,9 +23,9 @@ function main() {
         <Layout>
           <Switch>
             <Route path="/" exact component={About} />
-            {/* <Route path="/colabora" exact component={Colabora} />
+            {/* <Route path="/colabora" exact component={Colabora} /> */}
             <Route path="/teatro" exact component={Teatro} />
-            <Route path="/patrocinadores" exact component={Patrocinadores} /> */}
+            {/* <Route path="/patrocinadores" exact component={Patrocinadores} /> */}
           </Switch>
         </Layout>
       </Router>
