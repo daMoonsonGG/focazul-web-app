@@ -1,6 +1,7 @@
 .header {
   background-color: #235d9c;
   color: white;
+  box-shadow: inset 0px -26px 79px -8px rgba(0, 0, 0, 0.58);
   grid-row: header-s/header-e;
   grid-column: 1/-1;
   display: grid;
