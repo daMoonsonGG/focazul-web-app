@@ -1,15 +1,14 @@
 .about {
-  margin-top: 240px;
-  margin-bottom: 313px;
-  grid-gap: 133px;
+  grid-column-gap: 133px;
   grid-row: content-s/content-e;
   grid-column: s/e;
   display: grid;
   grid-auto-flow: column;
+  align-content: center;
 
   &__img-btn {
     display: grid;
-    grid-gap: 32px;
+    grid-row-gap: 32px;
   }
   .colabora-btn {
     height: 52px;
@@ -39,7 +38,7 @@
   &__info {
     align-self: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 17px;
     color: #090909;
   }
 }
