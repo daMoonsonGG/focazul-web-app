@@ -1,0 +1,22 @@
+.link {
+  height: 52px;
+  width: 192px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  background-color: #235d9c;
+  border: 2.5px solid transparent;
+  line-height: 50px;
+
+  &:hover {
+    cursor: pointer;
+    border: 2.5px solid #235d9c;
+    background-color: white;
+    color: #235d9c;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -23,14 +23,5 @@
     grid-column: redes-s/redes-e;
     display: grid;
     grid-template-columns: [siguenos-s] 100px [siguenos-e twitter-s] 25px [twitter-e facebook-s] 20px [facebook-e pinterest-s] 20px [pinterest-e youtube-s] 20px [youtube-e];
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    a:hover {
-      color: black;
-    }
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Link from "../link";
+
 class Teatro extends Component {
   render() {
     return (
@@ -27,20 +29,16 @@ class Teatro extends Component {
             derechos humanos.
           </div>
           <div className="teatro__text-group__buttons">
-            <a
+            <Link
               className="teatro__text-group__button"
               href="https://www.youtube.com/channel/UCb2J_KAggnkiAvbsDZRMI7w"
-              target="_blank"
-            >
-              Funciones
-            </a>
-            <a
+              title="Funciones"
+            />
+            <Link
               className="teatro__text-group__button"
               href="https://www.asociacionfocazul.com/elcafetindeoro/"
-              target="_blank"
-            >
-              Web
-            </a>
+              title="Web"
+            />
           </div>
         </div>
         <div className="teatro__img-group">

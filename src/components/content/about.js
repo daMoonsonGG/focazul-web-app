@@ -2,18 +2,22 @@ import React, { Component } from "react";
 
 import history from "../../history";
 
+import Button from "../button";
+
 class About extends Component {
+  handleClick() {
+    history.push("/colabora");
+  }
   render() {
     return (
       <div className="about">
         <div className="about__img-btn">
           <img className="about__img" src="https://i.imgur.com/NVIKiOZ.png" />
-          <button
+          <Button
             className="colabora-btn"
-            onClick={() => history.push("/colabora")}
-          >
-            Colabora
-          </button>
+            onClick={this.handleClick}
+            title="Colabora"
+          />
         </div>
         <span className="about__info">
           ¡Hola amigos! Asociación Focazul es una asociación declarada sin ánimo

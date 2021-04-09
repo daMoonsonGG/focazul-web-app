@@ -1,0 +1,14 @@
+.patrocinador {
+  height: 90px;
+  width: 90px;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  &:hover {
+    border: 3px solid #090909;
+  }
+  &__img {
+    object-fit: scale-down;
+    width: 90px;
+    height: 90px;
+  }
+}

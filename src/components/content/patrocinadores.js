@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Patrocinador from "../patrocinador";
+
 class Patrocinadores extends Component {
   render() {
     return (
@@ -31,68 +33,56 @@ class Patrocinadores extends Component {
             </div>
           </div>
           <div className="patrocinadores__grupo">
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/1h1Snmk.jpg"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <a href="https://vypgestion.es/" target="_blank">
-                <img
-                  className="patrocinador-img"
-                  src="https://i.imgur.com/fAaVaQH.png"
-                />
-              </a>
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/1h1Snmk.jpg"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/fAaVaQH.png"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/1h1Snmk.jpg"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/fAaVaQH.png"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/1h1Snmk.jpg"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/fAaVaQH.png"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/1h1Snmk.jpg"
-              />
-            </div>
-            <div className="patrocinadores__patrocinador">
-              <img
-                className="patrocinador-img"
-                src="https://i.imgur.com/fAaVaQH.png"
-              />
-            </div>
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="#"
+              src="https://i.imgur.com/1h1Snmk.jpg"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="https://vypgestion.es/"
+              src="https://i.imgur.com/fAaVaQH.png"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="#"
+              src="https://i.imgur.com/1h1Snmk.jpg"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="https://vypgestion.es/"
+              src="https://i.imgur.com/fAaVaQH.png"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="#"
+              src="https://i.imgur.com/1h1Snmk.jpg"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="https://vypgestion.es/"
+              src="https://i.imgur.com/fAaVaQH.png"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="#"
+              src="https://i.imgur.com/1h1Snmk.jpg"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="https://vypgestion.es/"
+              src="https://i.imgur.com/fAaVaQH.png"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="#"
+              src="https://i.imgur.com/1h1Snmk.jpg"
+            />
+            <Patrocinador
+              className="patrocinadores__patrocinador"
+              href="https://vypgestion.es/"
+              src="https://i.imgur.com/fAaVaQH.png"
+            />
           </div>
         </div>
       </div>
