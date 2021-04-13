@@ -36,10 +36,9 @@ class Header extends Component {
         </div>
         <a
           className="header__right-link"
-          href="https://focazul.wordpress.com/"
-          target="_blank"
+          onClick={() => history.push("/identificate")}
         >
-          Blog
+          Identifícate
         </a>
       </div>
     );

@@ -1,0 +1,39 @@
+.form-input {
+  display: grid;
+  grid-row-gap: 20px;
+  font-size: 17px;
+  color: #090909;
+
+  &__label {
+    justify-self: center;
+  }
+
+  &__input {
+    width: 550px;
+    height: 35px;
+  }
+}
+
+.form-button__button {
+  justify-self: center;
+  width: 190px;
+  font-size: 15px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  background-color: #235d9c;
+  border: 2.5px solid transparent;
+  line-height: 50px;
+
+  &:hover {
+    cursor: pointer;
+    border: 2.5px solid #235d9c;
+    background-color: white;
+    color: #235d9c;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
