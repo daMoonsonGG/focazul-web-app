@@ -8,7 +8,8 @@ class Teatro extends Component {
       <div className="teatro">
         <div className="teatro__text-group">
           <div className="teatro__text-group__title">
-            Teatro: El Cafetín de Oro
+            Teatro: <br />
+            El Cafetín de Oro
           </div>
           <div className="teatro__text-group__content">
             El cafetín de oro nace de la idea de publicar una obra de teatro de

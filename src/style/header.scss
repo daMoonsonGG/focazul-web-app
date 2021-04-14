@@ -9,22 +9,37 @@
   align-items: center;
   grid-template-rows: 1fr;
   grid-template-columns: [img-s] 1fr [img-e middle-links-s] 1fr [ middle-links-e right-link-s] 1fr [right-link-e];
+  @media screen and (max-width: 600px) {
+    font-size: 10px;
+    grid-template-columns: [img-s] 75px [img-e middle-links-s] 280px [ middle-links-e right-link-s] 150px [right-link-e];
+  }
 
   &__logo {
     height: 50px;
     margin-left: 60px;
+    margin-right: 60px;
     justify-self: start;
     grid-column: img-s/img-e;
     cursor: pointer;
+    @media screen and (max-width: 930px) {
+      height: 40px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 
   &__middle-links {
+    text-align: center;
+    align-items: center;
     grid-column: middle-links-s/middle-links-e;
     grid-row: 1/-1;
     display: grid;
     grid-template-rows: [s] 1fr [e];
     grid-column-gap: 85px;
     color: white;
+    @media screen and (max-width: 930px) {
+      grid-column-gap: 10px;
+    }
 
     & > * {
       grid-row: s/e;
@@ -32,6 +47,7 @@
   }
   &__right-link {
     margin-right: 60px;
+    margin-left: 60px;
     color: white;
     cursor: pointer;
     text-decoration: none;

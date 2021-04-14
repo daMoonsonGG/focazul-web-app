@@ -8,9 +8,17 @@
   align-items: center;
   grid-template-rows: 1fr;
   grid-template-columns: [aviso-legal-s] 1fr [aviso-legal-e derechos-s] 1fr [derechos-e redes-s] 1fr [redes-e];
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+    grid-template-columns: [aviso-legal-s] 150px [aviso-legal-e derechos-s] 150px [derechos-e redes-s] 150px [redes-e];
+  }
 
   &__aviso-legal {
+    text-align: start;
     margin-left: 60px;
+    @media screen and (max-width: 800px) {
+      margin-left: 30px;
+    }
   }
 
   &__rights {
@@ -22,6 +30,10 @@
     margin-right: 60px;
     grid-column: redes-s/redes-e;
     display: grid;
-    grid-template-columns: [siguenos-s] 100px [siguenos-e twitter-s] 25px [twitter-e facebook-s] 20px [facebook-e pinterest-s] 20px [pinterest-e youtube-s] 20px [youtube-e];
+    grid-template-columns: [twitter-s] 25px [twitter-e facebook-s] 20px [facebook-e pinterest-s] 20px [pinterest-e youtube-s] 20px [youtube-e];
+    @media screen and (max-width: 600px) {
+      margin-right: 5px;
+      grid-template-columns: [twitter-s] 17px [twitter-e facebook-s] 15px [facebook-e pinterest-s] 15px [pinterest-e youtube-s] 15px [youtube-e];
+    }
   }
 }

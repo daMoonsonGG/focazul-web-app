@@ -7,18 +7,32 @@
   grid-column: 1/-1;
   grid-template-columns: [s] 1fr [e];
   grid-template-rows: [title-s] 90px [title-e comment-s] 200px [comment-e options-s] 1fr [options-e];
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+  }
 
   &__title {
     font-size: 48px;
     grid-column: s/e;
     grid-row: title-s/title-e;
     justify-self: center;
+    @media screen and (max-width: 600px) {
+      font-size: 32px;
+    }
   }
 
   &__comment {
     justify-self: center;
     text-align: center;
     line-height: 35px;
+    @media screen and (max-width: 930px) {
+      width: 600px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    @media screen and (max-width: 600px) {
+      width: 400px;
+    }
 
     .contacto {
       color: #235d9c;
@@ -37,9 +51,14 @@
     margin-left: 200px;
     display: grid;
     grid-auto-flow: column;
+    @media screen and (max-width: 1200px) {
+      grid-auto-flow: row;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
   }
   &__sponsored-patrocinador {
-    height: 180px;
+    height: 250px;
     width: 450px;
     justify-self: center;
     display: grid;
@@ -49,6 +68,9 @@
     img {
       width: 450px;
       border-radius: 12px;
+      @media screen and (max-width: 600px) {
+        width: 250px;
+      }
     }
 
     .sponsored-code {
@@ -61,5 +83,9 @@
     grid-gap: 20px;
     grid-template-rows: 90px 90px;
     grid-template-columns: 90px 90px 90px 90px 90px;
+    @media screen and (max-width: 600px) {
+      grid-template-rows: 90px 90px 90px 90px 90px;
+      grid-template-columns: 90px 90px;
+    }
   }
 }

@@ -2,11 +2,20 @@
   font-size: 17px;
   color: #090909;
   margin-top: 60px;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
+  margin-left: 150px;
+  margin-right: 150px;
   display: grid;
   grid-column: 1/-1;
   grid-template-columns: [s] 1fr [e];
-  grid-template-rows: [title-s] 90px [title-e comment-s] 200px [comment-e options-s] 1fr [options-e];
+  grid-template-rows: [title-s] 90px [title-e comment-s] 150px [comment-e options-s] 1fr [options-e];
+  @media screen and (max-width: 1100px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 750px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
   &__title {
     font-size: 48px;
@@ -27,5 +36,9 @@
     margin-left: 80px;
     margin-right: 80px;
     justify-items: center;
+    @media screen and (max-width: 1200px) {
+      grid-row-gap: 50px;
+      grid-auto-flow: row;
+    }
   }
 }

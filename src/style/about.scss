@@ -5,8 +5,21 @@
   display: grid;
   grid-auto-flow: column;
   align-content: center;
-
+  @media screen and (max-width: 1300px) {
+    grid-template-rows: [logo-btn-s] 50px [logo-btn-e content-s] 750px [content-e];
+    grid-row-gap: 80px;
+  }
+  &__img {
+    @media screen and (max-width: 900px) {
+      height: 150px;
+    }
+    @media screen and (max-width: 1300px) {
+      margin-top: 80px;
+      justify-self: center;
+    }
+  }
   &__img-btn {
+    grid-row: logo-btn-s/logo-btn-e;
     display: grid;
     grid-row-gap: 32px;
   }
@@ -16,5 +29,19 @@
     text-align: center;
     font-size: 17px;
     color: #090909;
+    grid-row: content-s/content-e;
+    @media screen and (max-width: 1300px) {
+      width: 1000px;
+      margin-top: 80px;
+      margin-left: 60px;
+      margin-right: 60px;
+      justify-self: center;
+    }
+    @media screen and (max-width: 1100px) {
+      width: 800px;
+    }
+    @media screen and (max-width: 900px) {
+      width: 400px;
+    }
   }
 }

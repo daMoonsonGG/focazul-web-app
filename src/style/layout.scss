@@ -4,4 +4,7 @@
   display: grid;
   grid-template-rows: [header-s] 65px [header-e content-s] 1fr [content-e footer-s] 65px [footer-e];
   grid-template-columns: minmax(20px, 250px) [s] 1fr [e] minmax(20px, 250px);
+  @media screen and (max-width: 800px) {
+    grid-template-columns: [s] 1fr [e];
+  }
 }

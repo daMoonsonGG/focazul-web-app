@@ -9,7 +9,6 @@ class Footer extends Component {
         <div className="footer__aviso-legal">Aviso Legal</div>
         <div className="footer__rights">Asociación Focazul</div>
         <div className="footer__redes">
-          <div className="footer__redes-siguenos">Síguenos: </div>
           <Socials
             className="footer__redes-twitter"
             href="https://twitter.com/davidpiura"

@@ -16,7 +16,7 @@ class Colabora extends Component {
         </div>
         <div className="colabora__options">
           <OpcionColabora
-            className="colabora__option"
+            className="colabora__option colabora-1"
             src="https://i.imgur.com/dz1bDc4.png"
             title="Teaming"
             description="Actualmente colaboramos con 13 familias y lideramos 2 grupos en la
@@ -28,7 +28,7 @@ class Colabora extends Component {
             linkTitle="Dona"
           />
           <OpcionColabora
-            className="colabora__option"
+            className="colabora__option colabora-2"
             src="https://i.imgur.com/1YmGWQL.png"
             title="Artesanía"
             description="
@@ -41,7 +41,7 @@ class Colabora extends Component {
             linkTitle="Pinterest"
           />
           <OpcionColabora
-            className="colabora__option"
+            className="colabora__option colabora-3"
             src="https://i.imgur.com/UQTWdEl.png"
             title="The Best Sport"
             description="Nuestro patrocinador especializado en ropa deportiva y calzado de
