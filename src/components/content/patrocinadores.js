@@ -1,8 +1,20 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 import Patrocinador from "../patrocinador";
 
 class Patrocinadores extends Component {
+  state = {
+    patrocinadores: [],
+  };
+
+  componentDidMount() {
+    axios.get("http://localhost:4000/patrocinadores").then((res) => {
+      const patrocinadores = res.data;
+      this.setState(patrocinadores);
+    });
+  }
   render() {
     return (
       <div className="patrocinadores">
@@ -33,56 +45,14 @@ class Patrocinadores extends Component {
             </div>
           </div>
           <div className="patrocinadores__grupo">
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="#"
-              src="https://i.imgur.com/1h1Snmk.jpg"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="https://vypgestion.es/"
-              src="https://i.imgur.com/fAaVaQH.png"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="#"
-              src="https://i.imgur.com/1h1Snmk.jpg"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="https://vypgestion.es/"
-              src="https://i.imgur.com/fAaVaQH.png"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="#"
-              src="https://i.imgur.com/1h1Snmk.jpg"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="https://vypgestion.es/"
-              src="https://i.imgur.com/fAaVaQH.png"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="#"
-              src="https://i.imgur.com/1h1Snmk.jpg"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="https://vypgestion.es/"
-              src="https://i.imgur.com/fAaVaQH.png"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="#"
-              src="https://i.imgur.com/1h1Snmk.jpg"
-            />
-            <Patrocinador
-              className="patrocinadores__patrocinador"
-              href="https://vypgestion.es/"
-              src="https://i.imgur.com/fAaVaQH.png"
-            />
+            {this.state.patrocinadores.map((patrocinador) => (
+              <Patrocinador
+                key={patrocinador._id}
+                className="patrocinadores__patrocinador"
+                href={patrocinador.href}
+                src={patrocinador.img_src}
+              />
+            ))}
           </div>
         </div>
       </div>
