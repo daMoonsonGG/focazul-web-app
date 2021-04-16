@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import { reduxForm } from "redux-form";
-
 import IdentificateForm from "../identificateForm";
 
 class Identificate extends Component {
@@ -14,9 +12,5 @@ class Identificate extends Component {
     );
   }
 }
-
-Identificate = reduxForm({
-  form: "Identificate",
-})(Identificate);
 
 export default Identificate;

@@ -12,3 +12,16 @@
     height: 90px;
   }
 }
+
+.delete-btn {
+  margin-left: 45px;
+  color: red;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: darkred;
+  }
+}

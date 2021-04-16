@@ -11,7 +11,7 @@
   grid-template-columns: [img-s] 1fr [img-e middle-links-s] 1fr [ middle-links-e right-link-s] 1fr [right-link-e];
   @media screen and (max-width: 600px) {
     font-size: 10px;
-    grid-template-columns: [img-s] 75px [img-e middle-links-s] 280px [ middle-links-e right-link-s] 150px [right-link-e];
+    grid-template-columns: [img-s] 55px [img-e middle-links-s] 280px [ middle-links-e right-link-s] 230px [right-link-e];
   }
 
   &__logo {
@@ -52,6 +52,19 @@
     cursor: pointer;
     text-decoration: none;
     grid-column: right-link-s/right-link-e;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    a:hover {
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    i {
+      @media screen and (max-width: 600) {
+        color: red;
+      }
+    }
   }
   &__middle-link {
     &:hover {

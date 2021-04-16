@@ -5,16 +5,35 @@ import axios from "axios";
 import Patrocinador from "../patrocinador";
 
 class Patrocinadores extends Component {
-  state = {
-    patrocinadores: [],
-  };
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      patrocinadores: [],
+      userStatus: "NOT_LOGGED_IN",
+    };
+  }
   componentDidMount() {
     axios.get("http://localhost:4000/patrocinadores").then((res) => {
       const patrocinadores = res.data;
       this.setState(patrocinadores);
     });
+    axios.get("http://localhost:4000/users/logged-users/0").then((response) => {
+      if (response.data.message === "Usuario conectado") {
+        if (response.data.user.status === "logged") {
+          this.setState({
+            userStatus: "LOGGED_IN",
+          });
+        } else {
+          this.setState({
+            userStatus: "NOT_LOGGED_IN",
+          });
+        }
+      }
+    });
   }
+  clickToDelete() {}
+
   render() {
     return (
       <div className="patrocinadores">
@@ -48,9 +67,15 @@ class Patrocinadores extends Component {
             {this.state.patrocinadores.map((patrocinador) => (
               <Patrocinador
                 key={patrocinador._id}
+                id={patrocinador._id}
                 className="patrocinadores__patrocinador"
                 href={patrocinador.href}
                 src={patrocinador.img_src}
+                hoverIcon={
+                  this.state.userStatus === "LOGGED_IN" ? (
+                    <i className="fas fa-trash"></i>
+                  ) : null
+                }
               />
             ))}
           </div>

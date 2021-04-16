@@ -1,8 +1,39 @@
 import React, { Component } from "react";
 
+import axios from "axios";
+
 import history from "../../history";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userStatus: "NOT_LOGGED_IN",
+    };
+  }
+  componentDidMount() {
+    axios.get("http://localhost:4000/users/logged-users/0").then((response) => {
+      if (response.data.message === "Usuario conectado") {
+        if (response.data.user.status === "logged") {
+          this.setState({
+            userStatus: "LOGGED_IN",
+          });
+        } else {
+          this.setState({
+            userStatus: "NOT_LOGGED_IN",
+          });
+        }
+      }
+    });
+  }
+  handleLogOut() {
+    axios
+      .delete("http://localhost:4000/users/logged-users/0")
+      .then((response) => {
+        window.location.reload(true);
+      });
+  }
   render() {
     return (
       <div className="header">
@@ -34,12 +65,21 @@ class Header extends Component {
             Patrocinadores
           </a>
         </div>
-        <a
-          className="header__right-link"
-          onClick={() => history.push("/identificate")}
-        >
-          Identifícate
-        </a>
+        <div className="header__right-link">
+          {this.state.userStatus === "LOGGED_IN" ? (
+            <a className="header__right-link" onClick={this.handleLogOut}>
+              <i className="fas fa-sign-out-alt"></i>
+              Desconectar
+            </a>
+          ) : (
+            <a
+              className="header__right-link"
+              onClick={() => history.push("/identificate")}
+            >
+              Identifícate
+            </a>
+          )}
+        </div>
       </div>
     );
   }

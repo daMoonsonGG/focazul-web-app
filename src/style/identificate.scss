@@ -10,6 +10,10 @@
   grid-row-gap: 160px;
   grid-template-columns: [s] 1fr [e];
   grid-template-rows: [title-s] 90px [title-e comment-s] 200px [comment-e options-s] 1fr [options-e];
+  @media screen and (max-width: 750px) {
+    margin-left: 20px;
+    margin-right: 90px;
+  }
 
   &__title {
     font-size: 48px;
@@ -26,6 +30,21 @@
 
     &__btn {
       justify-self: center;
+    }
+  }
+
+  &__identificado {
+    font-size: 24px;
+    text-align: center;
+    line-height: 35px;
+
+    &__patrocinadores {
+      font-weight: 600;
+      cursor: pointer;
+      color: #235d9c;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

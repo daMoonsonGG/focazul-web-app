@@ -9,6 +9,10 @@
     grid-template-rows: [logo-btn-s] 50px [logo-btn-e content-s] 750px [content-e];
     grid-row-gap: 80px;
   }
+  @media screen and (max-width: 750px) {
+    margin-left: 20px;
+    margin-right: 90px;
+  }
   &__img {
     @media screen and (max-width: 900px) {
       height: 150px;
@@ -42,6 +46,10 @@
     }
     @media screen and (max-width: 900px) {
       width: 400px;
+    }
+    @media screen and (max-width: 600px) {
+      width: 350px;
+      font-size: 12px;
     }
   }
 }

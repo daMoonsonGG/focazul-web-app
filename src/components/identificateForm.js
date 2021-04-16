@@ -4,21 +4,39 @@ import { reduxForm, Field } from "redux-form";
 
 import { FormInput, FormButton } from "./formFields";
 
-import history from "../history";
 import axios from "axios";
+import history from "../history";
 
 class IdentificateForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      status: false,
+      user: {
+        email: "",
+        password: "",
+      },
+      userStatus: "NOT_LOGGED_IN",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:4000/users/logged-users/0").then((response) => {
+      if (response.data.message === "Usuario conectado") {
+        if (response.data.user.status === "logged") {
+          this.setState({
+            userStatus: "LOGGED_IN",
+          });
+        } else {
+          this.setState({
+            userStatus: "NOT_LOGGED_IN",
+          });
+        }
+      }
+    });
   }
 
   handleChange = (event) => {
@@ -33,22 +51,49 @@ class IdentificateForm extends Component {
         response.data.user.email === this.state.email &&
         response.data.user.password === this.state.password
       ) {
-        this.setState({
-          status: true,
-        });
-        history.push("/patrocinadores");
+        axios
+          .post("http://localhost:4000/users/logged-users", {
+            name: response.data.user.name,
+            email: response.data.user.email,
+          })
+          .then((response) => {
+            if (response.data.message === "Usuario conectado") {
+              axios
+                .get("http://localhost:4000/users/logged-users/0")
+                .then((response) => {
+                  if (response.data.user.status === "logged") {
+                    this.setState({
+                      userStatus: "LOGGED_IN",
+                    });
+                    window.location.reload(true);
+                  }
+                });
+            } else {
+              console.log("Error al conectar");
+            }
+          });
       } else {
-        this.setState({
-          status: false,
-        });
-        console.log(this.state.status);
+        console.log("Usuario incorrecto");
       }
     });
     event.preventDefault();
   };
   render() {
     const { className } = this.props;
-    return (
+    return this.state.userStatus === "LOGGED_IN" ? (
+      <div className="identificate__identificado">
+        Te encuentras conectado. <br /> ¿Deseas editar los{" "}
+        <a
+          className="identificate__identificado__patrocinadores"
+          onClick={() => {
+            history.push("/patrocinadores");
+          }}
+        >
+          Patrocinadores
+        </a>
+        ?
+      </div>
+    ) : (
       <form
         className={`${className} identificate__form`}
         onSubmit={this.handleSubmit}
