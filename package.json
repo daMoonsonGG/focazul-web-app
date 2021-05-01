@@ -1,9 +1,11 @@
 {
-  "name": "react-redux-router",
+  "name": "focazul",
   "version": "1.0.0",
-  "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "description": "Focazul Web",
   "scripts": {
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
+    "heroku-postbuild": "npm run build",
     "precommit": "eslint src",
     "prod": "NODE_ENV=production node server.js"
   },
@@ -31,7 +33,7 @@
   "dependencies": {
     "ajv": "6.12.0",
     "autoprefixer": "^9.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
@@ -66,7 +68,7 @@
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-middleware": "3.7.2",
-    "webpack-dev-server": "3.10.3",
+    "webpack-dev-server": "^3.11.2",
     "webpack-hot-middleware": "2.25.0",
     "webpack-merge": "4.2.2"
   },
