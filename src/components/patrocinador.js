@@ -5,7 +5,9 @@ import axios from "axios";
 class Patrocinador extends Component {
   onClick = () => {
     axios
-      .delete(`http://localhost:4000/patrocinadores/${this.props.id}`)
+      .delete(
+        `https://focazul-flask-server.herokuapp.com/patrocinadores/${this.props.id}`
+      )
       .then((response) => {
         window.location.reload(true);
       });

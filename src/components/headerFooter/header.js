@@ -13,23 +13,25 @@ class Header extends Component {
     };
   }
   componentDidMount() {
-    axios.get("http://localhost:4000/users/logged-users/0").then((response) => {
-      if (response.data.message === "Usuario conectado") {
-        if (response.data.user.status === "logged") {
-          this.setState({
-            userStatus: "LOGGED_IN",
-          });
-        } else {
-          this.setState({
-            userStatus: "NOT_LOGGED_IN",
-          });
+    axios
+      .get("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .then((response) => {
+        if (response.data.message === "Usuario conectado") {
+          if (response.data.user.status === "logged") {
+            this.setState({
+              userStatus: "LOGGED_IN",
+            });
+          } else {
+            this.setState({
+              userStatus: "NOT_LOGGED_IN",
+            });
+          }
         }
-      }
-    });
+      });
   }
   handleLogOut() {
     axios
-      .delete("http://localhost:4000/users/logged-users/0")
+      .delete("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
       .then((response) => {
         window.location.reload(true);
       });

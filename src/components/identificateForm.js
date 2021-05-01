@@ -17,6 +17,7 @@ class IdentificateForm extends Component {
         password: "",
       },
       userStatus: "NOT_LOGGED_IN",
+      loginError: "NOT_LOGIN_ERROR",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,19 +25,21 @@ class IdentificateForm extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:4000/users/logged-users/0").then((response) => {
-      if (response.data.message === "Usuario conectado") {
-        if (response.data.user.status === "logged") {
-          this.setState({
-            userStatus: "LOGGED_IN",
-          });
-        } else {
-          this.setState({
-            userStatus: "NOT_LOGGED_IN",
-          });
+    axios
+      .get("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .then((response) => {
+        if (response.data.message === "Usuario conectado") {
+          if (response.data.user.status === "logged") {
+            this.setState({
+              userStatus: "LOGGED_IN",
+            });
+          } else {
+            this.setState({
+              userStatus: "NOT_LOGGED_IN",
+            });
+          }
         }
-      }
-    });
+      });
   }
 
   handleChange = (event) => {
@@ -46,83 +49,108 @@ class IdentificateForm extends Component {
   };
 
   handleSubmit = (event) => {
-    axios.get("http://localhost:4000/users/0").then((response) => {
-      if (
-        response.data.user.email === this.state.email &&
-        response.data.user.password === this.state.password
-      ) {
-        axios
-          .post("http://localhost:4000/users/logged-users", {
-            name: response.data.user.name,
-            email: response.data.user.email,
-          })
-          .then((response) => {
-            if (response.data.message === "Usuario conectado") {
-              axios
-                .get("http://localhost:4000/users/logged-users/0")
-                .then((response) => {
-                  if (response.data.user.status === "logged") {
-                    this.setState({
-                      userStatus: "LOGGED_IN",
-                    });
-                    window.location.reload(true);
-                  }
-                });
-            } else {
-              console.log("Error al conectar");
-            }
+    axios
+      .get("https://focazul-flask-server.herokuapp.com/users/0")
+      .then((response) => {
+        if (
+          response.data.user.email === this.state.email &&
+          response.data.user.password === this.state.password
+        ) {
+          axios
+            .post(
+              "https://focazul-flask-server.herokuapp.com/users/logged-users",
+              {
+                name: response.data.user.name,
+                email: response.data.user.email,
+              }
+            )
+            .then((response) => {
+              if (response.data.message === "Usuario conectado") {
+                axios
+                  .get(
+                    "https://focazul-flask-server.herokuapp.com/users/logged-users/0"
+                  )
+                  .then((response) => {
+                    if (response.data.user.status === "logged") {
+                      this.setState({
+                        userStatus: "LOGGED_IN",
+                        triedToLogin: "NOT_LOGIN_ERROR",
+                      });
+                      window.location.reload(true);
+                    }
+                  });
+              } else {
+                console.log("Error al conectar");
+              }
+            });
+        } else {
+          this.setState({
+            userStatus: "NOT_LOGGED_IN",
+            loginError: "LOGIN_ERROR",
           });
-      } else {
-        console.log("Usuario incorrecto");
-      }
-    });
+        }
+      });
     event.preventDefault();
   };
   render() {
     const { className } = this.props;
-    return this.state.userStatus === "LOGGED_IN" ? (
-      <div className="identificate__identificado">
-        Te encuentras conectado. <br /> ¿Deseas editar los{" "}
-        <a
-          className="identificate__identificado__patrocinadores"
-          onClick={() => {
-            history.push("/patrocinadores");
-          }}
-        >
-          Patrocinadores
-        </a>
-        ?
+    return (
+      <div className="identificate__form-form">
+        <div className="login-error-msg">
+          {this.state.loginError === "NOT_LOGIN_ERROR" ? null : (
+            <div>
+              Error en email o contraseña. <br />
+              Inténtelo de nuevo o póngase en contacto con el administrador.
+            </div>
+          )}
+        </div>
+        <div>
+          {this.state.userStatus === "LOGGED_IN" ? (
+            <div className="identificate__identificado">
+              Te encuentras conectado. <br /> ¿Deseas editar los{" "}
+              <a
+                className="identificate__identificado__patrocinadores"
+                onClick={() => {
+                  history.push("/patrocinadores");
+                }}
+              >
+                Patrocinadores
+              </a>
+              ?
+            </div>
+          ) : (
+            <form
+              className={`${className} identificate__form`}
+              onSubmit={this.handleSubmit}
+            >
+              <Field
+                className="identificate__form__email"
+                type="email"
+                title="Email"
+                name="email"
+                component={FormInput}
+                onChange={this.handleChange}
+              />
+              <Field
+                className="identificate__form__password"
+                type="password"
+                title="Password"
+                name="password"
+                defaultValue="jeje"
+                component={FormInput}
+                onChange={this.handleChange}
+              />
+              <Field
+                className="identificate__form__btn"
+                name="btn"
+                title="Conectar"
+                type="submit"
+                component={FormButton}
+              />
+            </form>
+          )}
+        </div>
       </div>
-    ) : (
-      <form
-        className={`${className} identificate__form`}
-        onSubmit={this.handleSubmit}
-      >
-        <Field
-          className="identificate__form__email"
-          type="email"
-          title="Email"
-          name="email"
-          component={FormInput}
-          onChange={this.handleChange}
-        />
-        <Field
-          className="identificate__form__password"
-          type="password"
-          title="Password"
-          name="password"
-          defaultValue="jeje"
-          component={FormInput}
-          onChange={this.handleChange}
-        />
-        <Field
-          className="identificate__form__btn"
-          name="btn"
-          title="Conectar"
-          type="submit"
-          component={FormButton}
-        />
-      </form>
     );
   }
 }
