@@ -26,9 +26,7 @@ class IdentificateForm extends Component {
 
   componentDidMount() {
     axios
-      .get(
-        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
-      )
+      .get("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -52,25 +50,22 @@ class IdentificateForm extends Component {
 
   handleSubmit = (event) => {
     axios
-      .get("https://damoonsongg-focazul-flask-9483.zeet.app/users/0")
+      .get("http://damoonsongg.pythonanywhere.com/users/0")
       .then((response) => {
         if (
           response.data.user.email === this.state.email &&
           response.data.user.password === this.state.password
         ) {
           axios
-            .post(
-              "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users",
-              {
-                name: response.data.user.name,
-                email: response.data.user.email,
-              }
-            )
+            .post("http://damoonsongg.pythonanywhere.com/users/logged-users", {
+              name: response.data.user.name,
+              email: response.data.user.email,
+            })
             .then((response) => {
               if (response.data.message === "Usuario conectado") {
                 axios
                   .get(
-                    "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
+                    "http://damoonsongg.pythonanywhere.com/users/logged-users/0"
                   )
                   .then((response) => {
                     if (response.data.user.status === "logged") {

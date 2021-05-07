@@ -14,9 +14,7 @@ class Header extends Component {
   }
   componentDidMount() {
     axios
-      .get(
-        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
-      )
+      .get("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -33,9 +31,7 @@ class Header extends Component {
   }
   handleLogOut() {
     axios
-      .delete(
-        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
-      )
+      .delete("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         window.location.reload(true);
       });

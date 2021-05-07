@@ -6,7 +6,7 @@ class Patrocinador extends Component {
   onClick = () => {
     axios
       .delete(
-        `https://damoonsongg-focazul-flask-9483.zeet.app/patrocinadores/${this.props.id}`
+        `http://damoonsongg.pythonanywhere.com/patrocinadores/${this.props.id}`
       )
       .then((response) => {
         window.location.reload(true);
