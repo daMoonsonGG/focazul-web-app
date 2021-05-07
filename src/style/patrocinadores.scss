@@ -6,6 +6,9 @@
   grid-column: 1/-1;
   grid-template-columns: [s] 1fr [e];
   grid-template-rows: [title-s] 90px [title-e comment-s] 200px [comment-e options-s] 1fr [options-e];
+  @media screen and (max-width: 1200px) {
+    margin-bottom: 100px;
+  }
   @media screen and (max-width: 750px) {
     margin-left: 20px;
     margin-right: 90px;

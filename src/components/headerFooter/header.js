@@ -14,7 +14,9 @@ class Header extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .get(
+        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
+      )
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -31,7 +33,9 @@ class Header extends Component {
   }
   handleLogOut() {
     axios
-      .delete("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .delete(
+        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
+      )
       .then((response) => {
         window.location.reload(true);
       });

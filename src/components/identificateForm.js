@@ -26,7 +26,9 @@ class IdentificateForm extends Component {
 
   componentDidMount() {
     axios
-      .get("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .get(
+        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
+      )
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -50,7 +52,7 @@ class IdentificateForm extends Component {
 
   handleSubmit = (event) => {
     axios
-      .get("https://focazul-flask-server.herokuapp.com/users/0")
+      .get("https://damoonsongg-focazul-flask-9483.zeet.app/users/0")
       .then((response) => {
         if (
           response.data.user.email === this.state.email &&
@@ -58,7 +60,7 @@ class IdentificateForm extends Component {
         ) {
           axios
             .post(
-              "https://focazul-flask-server.herokuapp.com/users/logged-users",
+              "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users",
               {
                 name: response.data.user.name,
                 email: response.data.user.email,
@@ -68,7 +70,7 @@ class IdentificateForm extends Component {
               if (response.data.message === "Usuario conectado") {
                 axios
                   .get(
-                    "https://focazul-flask-server.herokuapp.com/users/logged-users/0"
+                    "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
                   )
                   .then((response) => {
                     if (response.data.user.status === "logged") {
@@ -76,6 +78,7 @@ class IdentificateForm extends Component {
                         userStatus: "LOGGED_IN",
                         triedToLogin: "NOT_LOGIN_ERROR",
                       });
+
                       window.location.reload(true);
                     }
                   });

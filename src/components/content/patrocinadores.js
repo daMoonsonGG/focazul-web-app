@@ -15,13 +15,15 @@ class Patrocinadores extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://focazul-flask-server.herokuapp.com/patrocinadores")
+      .get("https://damoonsongg-focazul-flask-9483.zeet.app/patrocinadores")
       .then((res) => {
         const patrocinadores = res.data;
         this.setState(patrocinadores);
       });
     axios
-      .get("https://focazul-flask-server.herokuapp.com/users/logged-users/0")
+      .get(
+        "https://damoonsongg-focazul-flask-9483.zeet.app/users/logged-users/0"
+      )
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
