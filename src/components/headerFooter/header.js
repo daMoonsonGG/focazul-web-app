@@ -14,7 +14,7 @@ class Header extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
+      .get("https://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -31,7 +31,7 @@ class Header extends Component {
   }
   handleLogOut() {
     axios
-      .delete("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
+      .delete("https://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         window.location.reload(true);
       });

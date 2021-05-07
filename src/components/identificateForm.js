@@ -26,7 +26,7 @@ class IdentificateForm extends Component {
 
   componentDidMount() {
     axios
-      .get("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
+      .get("https://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
@@ -50,14 +50,14 @@ class IdentificateForm extends Component {
 
   handleSubmit = (event) => {
     axios
-      .get("http://damoonsongg.pythonanywhere.com/users/0")
+      .get("https://damoonsongg.pythonanywhere.com/users/0")
       .then((response) => {
         if (
           response.data.user.email === this.state.email &&
           response.data.user.password === this.state.password
         ) {
           axios
-            .post("http://damoonsongg.pythonanywhere.com/users/logged-users", {
+            .post("https://damoonsongg.pythonanywhere.com/users/logged-users", {
               name: response.data.user.name,
               email: response.data.user.email,
             })
@@ -65,7 +65,7 @@ class IdentificateForm extends Component {
               if (response.data.message === "Usuario conectado") {
                 axios
                   .get(
-                    "http://damoonsongg.pythonanywhere.com/users/logged-users/0"
+                    "https://damoonsongg.pythonanywhere.com/users/logged-users/0"
                   )
                   .then((response) => {
                     if (response.data.user.status === "logged") {

@@ -6,7 +6,7 @@ class Patrocinador extends Component {
   onClick = () => {
     axios
       .delete(
-        `http://damoonsongg.pythonanywhere.com/patrocinadores/${this.props.id}`
+        `https://damoonsongg.pythonanywhere.com/patrocinadores/${this.props.id}`
       )
       .then((response) => {
         window.location.reload(true);

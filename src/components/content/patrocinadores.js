@@ -15,13 +15,13 @@ class Patrocinadores extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://damoonsongg.pythonanywhere.com/patrocinadores")
+      .get("https://damoonsongg.pythonanywhere.com/patrocinadores")
       .then((res) => {
         const patrocinadores = res.data;
         this.setState(patrocinadores);
       });
     axios
-      .get("http://damoonsongg.pythonanywhere.com/users/logged-users/0")
+      .get("https://damoonsongg.pythonanywhere.com/users/logged-users/0")
       .then((response) => {
         if (response.data.message === "Usuario conectado") {
           if (response.data.user.status === "logged") {
